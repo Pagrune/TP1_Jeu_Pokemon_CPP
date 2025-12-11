@@ -1,14 +1,15 @@
 #include "EnergyCard.h"
+#include "Card.h"
 #include <iostream>
 using namespace std;
 
-EnergyCard::EnergyCard(const string& _name){
-    cardName = _name;
-    energyType = "Energy";
+EnergyCard::EnergyCard(){};
+
+EnergyCard::EnergyCard(const string& name) : Card(name), _energyType("Energy"){
 }
 
 string EnergyCard::getEnergyType() const{
-    return energyType;
+    return _energyType;
 }
 
 void EnergyCard::displayInfo(){

@@ -19,7 +19,8 @@ class PokemonCard : public Card{
         vector<tuple<int, int, string, int>> attacks;
     public:
         //constructor
-        PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp);
+        PokemonCard();
+        PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp, const vector<tuple<int, int, string, int>>& _attacks);
 
         // getters
         string getPokemonType() const;

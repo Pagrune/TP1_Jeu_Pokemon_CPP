@@ -8,10 +8,11 @@ using namespace std;
 
 class EnergyCard : public Card{
     private :
-        string energyType;
+        string _energyType;
     public : 
         // Constructor
-        EnergyCard(const string& _name);
+        EnergyCard();
+        EnergyCard(const string& name);
 
         string getEnergyType() const;
 

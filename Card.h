@@ -8,17 +8,18 @@ using namespace std;
 
 class Card{
     protected:
-        string cardName;
+        string _cardName;
        
     public:
+        // Constructor
+        Card(){};
+        Card(const string& cardName) : _cardName(cardName) {}
+
         // getter for cardName
         string getCardName() const {
-            return cardName;
+            return _cardName;
         }
 
-        void setCardName(const string& name) {
-            cardName = name;
-        }
 
         virtual void displayInfo() = 0;
 };

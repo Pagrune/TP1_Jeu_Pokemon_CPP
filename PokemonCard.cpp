@@ -1,15 +1,14 @@
 #include "PokemonCard.h"
 #include <iostream>
+#include <vector>
 using namespace std;
 
 // constructor
-PokemonCard::PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp){
-    cardName = _name;
-    pokemonType = _pokemonType;
-    familyName = _familyName;
-    evolutionLevel = _evolutionLevel;
-    maxHP = _maxHP;
-    hp = _hp;
+PokemonCard::PokemonCard() : Card(), pokemonType(""), familyName(""), evolutionLevel(0), maxHP(0), hp(0) {
+}
+
+PokemonCard::PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp, const vector<tuple<int, int, string, int>>& _attacks)
+    : Card(_name), pokemonType(_pokemonType), familyName(_familyName), evolutionLevel(_evolutionLevel), maxHP(_maxHP), hp(_hp), attacks(_attacks) {
 }
 
 // getters
