@@ -1,6 +1,7 @@
 #include "Card.h"
 #include "EnergyCard.h"
 #include "PokemonCard.h"
+#include "TrainerCard.h"
 
 #include <string>
 #include <vector>
@@ -13,6 +14,7 @@ int main(){
     EnergyCard energy= EnergyCard(nomCarteEnergy);
     energy.displayInfo();
 
+    cout << endl;
     string nomCartePokemon = "Pikachu";
     string typePokemon = "Electrik";
     string famillePokemon = "Pikachu";
@@ -25,5 +27,11 @@ int main(){
     };
     PokemonCard pokemon = PokemonCard(nomCartePokemon, typePokemon, famillePokemon, niveauEvolution, pointsDeVieMax, pointsDeVieActuels, attaques);
     pokemon.displayInfo();
+
+
+    cout << endl;
+    string nomTrainer = "Trainer 1";
+    TrainerCard trainer = TrainerCard(nomTrainer);
+    trainer.displayInfo();
 
 }
