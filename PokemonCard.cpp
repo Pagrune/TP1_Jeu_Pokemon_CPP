@@ -2,6 +2,16 @@
 #include <iostream>
 using namespace std;
 
+// constructor
+PokemonCard::PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp){
+    cardName = _name;
+    pokemonType = _pokemonType;
+    familyName = _familyName;
+    evolutionLevel = _evolutionLevel;
+    maxHP = _maxHP;
+    hp = _hp;
+}
+
 // getters
 string PokemonCard::getPokemonType() const {
     return pokemonType;
@@ -25,31 +35,6 @@ int PokemonCard::getHP() const {
 
 vector<tuple<int, int, string, int>> PokemonCard::getAttacks() const {
     return attacks;
-}
-
-// setters
-void PokemonCard::setPokemonType(const string& type) {
-    pokemonType = type;
-}
-
-void PokemonCard::setFamilyName(const string& family) {
-    familyName = family;
-}
-
-void PokemonCard::setEvolutionLevel(int level) {
-    evolutionLevel = level;
-}
-
-void PokemonCard::setMaxHP(int maxHp) {
-    maxHP = maxHp;
-}
-
-void PokemonCard::setHP(int hpValue) {
-    hp = hpValue;
-}
-
-void PokemonCard::addAttack(int energyCost, const string& description, int damage) {
-    attacks.emplace_back(energyCost, 0, description, damage);
 }
 
 void PokemonCard::displayInfo() {
