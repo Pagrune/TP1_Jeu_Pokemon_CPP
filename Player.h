@@ -19,6 +19,31 @@ class Player{
         Player();
         Player(const string& playerName);
 
+        // getter
+        string getPlayerName() const;
+
+
+        // addCardtoBench
+        void addCardToBench(Card* card);
+
+        // attachEnergyCard
+        void attachEnergyCard(PokemonCard* pokemonCard, Card* energyCard);
+
+        // activatePokemonCard
+        void activatePokemonCard(PokemonCard* pokemonCard);
+
+        // useTrainer
+        void useTrainer(Card* trainerCard);
+
+        // attack
+        void attack(PokemonCard* attacker, int attackIndex, Player& opponent, PokemonCard* defender);
+
+        //displayAction
+        void displayAction();
+
+        // displayBench
+        void displayBench();
+
 };
 
 

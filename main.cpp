@@ -2,6 +2,7 @@
 #include "EnergyCard.h"
 #include "PokemonCard.h"
 #include "TrainerCard.h"
+#include "Player.h"
 
 #include <string>
 #include <vector>
@@ -9,6 +10,10 @@
 using namespace std;
 
 int main(){
+    Player player1("Ash");
+
+    
+
     string nomCarteEnergy = "Feu";
 
     EnergyCard energy= EnergyCard(nomCarteEnergy);
