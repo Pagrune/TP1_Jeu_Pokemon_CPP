@@ -113,11 +113,13 @@ void Player::attack(PokemonCard* attacker,
     int energyCost = attacker->getAttackEnergyCost(attackIndex);
 
     cout << getPlayerName()
-         << "'s Pokemon " << attacker->getCardName()
-         << " attacks "
+         << " attacking "
          << opponent.getPlayerName()
          << "'s Pokemon " << defender->getCardName()
-         << " and deals " << damage << " damage."
+         << " with the Pokemon " << attacker->getCardName()
+         << " with its attacks " << get<1>(attacker->getAttacks()[attackIndex]) <<endl         
+         << "Reducing " << damage << " from " << defender->getCardName()
+         << "'s Pokemon's HP."
          << endl;
 
     // Infliger les dégâts
