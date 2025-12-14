@@ -5,6 +5,7 @@
 #include <vector>
 #include "Card.h"
 #include "PokemonCard.h"
+#include <algorithm>
 
 using namespace std;
 
