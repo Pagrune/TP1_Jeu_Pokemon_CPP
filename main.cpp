@@ -23,7 +23,6 @@ int main(){
         "Pikachu",
         2,
         100,
-        2,
         {make_tuple(2, "Thunder bolt", 20), make_tuple(3, "Thunder storm", 30)}
     );
     
@@ -54,7 +53,6 @@ int main(){
         "Bulbasaur",
         1,
         100,
-        2,
         {make_tuple(2, "Leech Seed", 15), make_tuple(3, "Vine Whipe", 25)}
     );
 
@@ -64,6 +62,11 @@ int main(){
     
     cout << endl;
     player2.displayBench();
+    cout << endl;
+    player2.displayAction();
+    cout << endl;
+
+    player1.attack(&pokemonPikachu, 0, player2, &pokemonBulbizarre);
     cout << endl;
     player2.displayAction();
     cout << endl;

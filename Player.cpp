@@ -91,12 +91,52 @@ void Player::useTrainer(Card* trainerCard){
 }
 
 
-void Player::attack(PokemonCard* attacker, int attackIndex, Player& opponent, PokemonCard* defender){
-    cout << getPlayerName() 
-        << "'s Pokemon " << attacker->getCardName() 
-        << " is attacking " << opponent.getPlayerName() 
-        << "'s Pokemon " << defender->getCardName() << endl;
+void Player::attack(PokemonCard* attacker,
+                    int attackIndex,
+                    Player& opponent,
+                    PokemonCard* defender)
+{
+    if (!attacker || !defender) {
+        cout << "Erreur : Pokémon invalide." << endl;
+        return;
+    }
+
+    // Vérifier si l'attaque est possible
+    if (!attacker->canUseAttack(attackIndex)) {
+        cout << attacker->getCardName()
+             << " does not have enough energy to use this attack."
+             << endl;
+        return;
+    }
+
+    int damage = attacker->getAttackDamage(attackIndex);
+    int energyCost = attacker->getAttackEnergyCost(attackIndex);
+
+    cout << getPlayerName()
+         << "'s Pokemon " << attacker->getCardName()
+         << " attacks "
+         << opponent.getPlayerName()
+         << "'s Pokemon " << defender->getCardName()
+         << " and deals " << damage << " damage."
+         << endl;
+
+    // Infliger les dégâts
+    defender->takeDamage(damage);
+
+    // Consommer l'énergie
+    attacker->consumeEnergy(energyCost);
+
+    // Vérifier KO
+    if (defender->getHP() == 0) {
+        cout << defender->getCardName()
+             << " is knocked out!" << endl;
+    }
+    else{
+        cout << defender->getCardName()
+             << " is still alive" << endl;
+    }
 }
+
 
 void Player::displayAction(){
     cout << "Action Cards of " << getPlayerName() << " :" << endl;

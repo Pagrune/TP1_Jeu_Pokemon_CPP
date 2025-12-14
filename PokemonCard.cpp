@@ -4,21 +4,19 @@
 using namespace std;
 
 // constructor
-PokemonCard::PokemonCard() : Card(), pokemonType(""), familyName(""), evolutionLevel(0), maxHP(0), hp(0) {
+PokemonCard::PokemonCard() : Card(), pokemonType(""), familyName(""), evolutionLevel(0), hp(0) {
 }
 
 PokemonCard::PokemonCard(const string& _name,
                          const string& _pokemonType,
                          const string& _familyName,
                          const int& _evolutionLevel,
-                         const int& _maxHP,
                          const int& _hp,
                          const vector<tuple<int, string, int>>& _attacks)
     : Card(_name),
       pokemonType(_pokemonType),
       familyName(_familyName),
       evolutionLevel(_evolutionLevel),
-      maxHP(_maxHP),
       hp(_hp),
       attacks(_attacks) {
 }
@@ -37,9 +35,6 @@ int PokemonCard::getEvolutionLevel() const {
     return evolutionLevel;
 }
 
-int PokemonCard::getMaxHP() const {
-    return maxHP;
-}
 
 int PokemonCard::getHP() const {
     return hp;
@@ -57,6 +52,34 @@ int PokemonCard::getEnergyCount() const {
     return attachedEnergies.size();
 }
 
+bool PokemonCard::canUseAttack(int attackIndex) const {
+    if (attackIndex < 0 || attackIndex >= attacks.size())
+        return false;
+
+    int energyCost = get<0>(attacks[attackIndex]);
+    return getEnergyCount() >= energyCost;
+}
+
+int PokemonCard::getAttackEnergyCost(int attackIndex) const {
+    return get<0>(attacks[attackIndex]);
+}
+
+int PokemonCard::getAttackDamage(int attackIndex) const {
+    return get<2>(attacks[attackIndex]);
+}
+
+void PokemonCard::consumeEnergy(int amount) {
+    for (int i = 0; i < amount && !attachedEnergies.empty(); i++) {
+        attachedEnergies.pop_back();
+    }
+}
+
+void PokemonCard::takeDamage(int damage) {
+    hp -= damage;
+    if (hp < 0) hp = 0;
+}
+
+
 
 
 void PokemonCard::displayInfo() {
@@ -64,7 +87,7 @@ void PokemonCard::displayInfo() {
     cout << "Name: " << getCardName() << ", ";
     cout << "Type: " << pokemonType << ", ";
     cout << "Evolution Level: " << evolutionLevel << "of the family " << familyName << ", ";
-    cout << "HP: " << maxHP << ", " << endl;
+    cout << "HP: " << hp << ", " << endl;
 
     cout << "Attacks:" << endl;
     for (const auto& attack : attacks) {

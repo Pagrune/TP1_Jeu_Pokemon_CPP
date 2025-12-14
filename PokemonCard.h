@@ -13,7 +13,6 @@ class PokemonCard : public Card{
         string pokemonType;
         string familyName;
         int evolutionLevel;
-        int maxHP;
         int hp;
         vector<EnergyCard*> attachedEnergies;
 
@@ -22,18 +21,25 @@ class PokemonCard : public Card{
     public:
         //constructor
         PokemonCard();
-        PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _maxHP, const int& _hp, const vector<tuple<int, string, int>>& _attacks);
+        PokemonCard(const string& _name, const string& _pokemonType, const string& _familyName, const int& _evolutionLevel, const int& _hp, const vector<tuple<int, string, int>>& _attacks);
 
         // getters
         string getPokemonType() const;
         string getFamilyName() const;
         int getEvolutionLevel() const;
-        int getMaxHP() const;
         int getHP() const;
         vector<tuple<int, string, int>> getAttacks() const;
-        void addEnergy(EnergyCard* energy);
         int getEnergyCount() const;
 
+
+        bool canUseAttack(int attackIndex) const;
+
+        int getAttackEnergyCost(int attackIndex) const;
+        int getAttackDamage(int attackIndex) const;
+        void consumeEnergy(int amount);
+        void takeDamage(int damage);
+
+        void addEnergy(EnergyCard* energy);
 
 
         void displayInfo() override;
