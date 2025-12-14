@@ -10,16 +10,15 @@
 using namespace std;
 
 int main(){
-    Player player1("Ash");
+    Player player1("Hadi");
 
-    
+    string nomCarteEnergyElec = "Electric";
 
-    string nomCarteEnergy = "Feu";
+    EnergyCard energyElectric= EnergyCard(nomCarteEnergyElec);
 
-    EnergyCard energy= EnergyCard(nomCarteEnergy);
-    energy.displayInfo();
+    // energy.displayInfo();
 
-    cout << endl;
+    // cout << endl;
     string nomCartePokemon = "Pikachu";
     string typePokemon = "Electrik";
     string famillePokemon = "Pikachu";
@@ -30,13 +29,19 @@ int main(){
         make_tuple(2, 2, "Éclair", 30),
         make_tuple(3, 2, "Tonnerre", 50)
     };
-    PokemonCard pokemon = PokemonCard(nomCartePokemon, typePokemon, famillePokemon, niveauEvolution, pointsDeVieMax, pointsDeVieActuels, attaques);
-    pokemon.displayInfo();
+    PokemonCard pokemonPikachu = PokemonCard(nomCartePokemon, typePokemon, famillePokemon, niveauEvolution, pointsDeVieMax, pointsDeVieActuels, attaques);
+    
+    player1.addCardToBench(&energyElectric);
+    player1.addCardToBench(&energyElectric);
+    player1.addCardToBench(new TrainerCard("Ash", "Heal all your action pokemon"));
+    player1.addCardToBench(&pokemonPikachu);
+    player1.activatePokemonCard(&pokemonPikachu);
+    player1.attachEnergyCard(&pokemonPikachu, &energyElectric);
+    player1.attachEnergyCard(&pokemonPikachu, &energyElectric);
+    
 
 
-    cout << endl;
-    string nomTrainer = "Trainer 1";
-    TrainerCard trainer = TrainerCard(nomTrainer);
-    trainer.displayInfo();
+    
+    // pokemon.displayInfo();
 
 }

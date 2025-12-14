@@ -12,7 +12,7 @@ class TrainerCard : public Card{
     public : 
         // Constructor
         TrainerCard();
-        TrainerCard(const string& name);
+        TrainerCard(const string& name, const string& effect);
 
         string getTrainerEffect() const;
 

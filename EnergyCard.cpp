@@ -9,7 +9,7 @@ EnergyCard::EnergyCard(const string& name) : Card(name), _energyType("Energy"){
 }
 
 string EnergyCard::getEnergyType() const{
-    return _energyType;
+    return Card::getCardName();
 }
 
 void EnergyCard::displayInfo(){

@@ -5,7 +5,7 @@ using namespace std;
 
 TrainerCard::TrainerCard(){};
 
-TrainerCard::TrainerCard(const string& name) : Card(name), _trainerEffect("Heal all your action pokemon"){
+TrainerCard::TrainerCard(const string& name, const string& effect) : Card(name), _trainerEffect(effect){
 }
 
 string TrainerCard::getTrainerEffect() const{

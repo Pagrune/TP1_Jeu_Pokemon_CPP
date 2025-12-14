@@ -2,6 +2,7 @@
 #define POKEMONCARD_H
 
 #include "Card.h"
+#include "EnergyCard.h"
 #include <string>
 #include <vector>
 
@@ -14,6 +15,7 @@ class PokemonCard : public Card{
         int evolutionLevel;
         int maxHP;
         int hp;
+        vector<EnergyCard*> attachedEnergies;
 
         // vector de tuple (coût en énergie, coût en énergie actuel, description de l'attaque, dégâts)
         vector<tuple<int, int, string, int>> attacks;
@@ -29,6 +31,8 @@ class PokemonCard : public Card{
         int getMaxHP() const;
         int getHP() const;
         vector<tuple<int, int, string, int>> getAttacks() const;
+        void addEnergy(EnergyCard* energy);
+        int getEnergyCount() const;
 
 
 

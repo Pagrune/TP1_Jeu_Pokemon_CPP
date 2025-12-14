@@ -36,6 +36,16 @@ vector<tuple<int, int, string, int>> PokemonCard::getAttacks() const {
     return attacks;
 }
 
+void PokemonCard::addEnergy(EnergyCard* energy) {
+    attachedEnergies.push_back(energy);
+}
+
+int PokemonCard::getEnergyCount() const {
+    return attachedEnergies.size();
+}
+
+
+
 void PokemonCard::displayInfo() {
     cout << "Card Name: " << getCardName() << endl;
     cout << "Pokemon Type: " << pokemonType << endl;
