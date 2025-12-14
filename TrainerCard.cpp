@@ -13,6 +13,6 @@ string TrainerCard::getTrainerEffect() const{
 }
 
 void TrainerCard::displayInfo(){
-    cout << "Card Name: " << getCardName() << endl;
-    cout << "Effet:" << getTrainerEffect() << endl;
+    cout << "Trainer Card - Name: " << getCardName() << ", ";
+    cout << "Effect:" << getTrainerEffect() << endl;
 }

@@ -16,20 +16,6 @@ int main(){
 
     EnergyCard energyElectric= EnergyCard(nomCarteEnergyElec);
 
-    // energy.displayInfo();
-
-    // cout << endl;
-    // string nomCartePokemon = "Pikachu";
-    // string typePokemon = "Electric";
-    // string famillePokemon = "Pikachu";
-    // int niveauEvolution = 2;
-    // int pointsDeVieMax = 100;
-    // int pointsDeVieActuels = 2;
-    // vector<tuple<int, int, string, int>> attaques = {
-    //     make_tuple(2, "Thunder bolt", 20),
-    //     make_tuple(3, "Thunder strom", 30)
-    // };
-    // PokemonCard pokemonPikachu = PokemonCard(nomCartePokemon, typePokemon, famillePokemon, niveauEvolution, pointsDeVieMax, pointsDeVieActuels, attaques);
 
     PokemonCard pokemonPikachu = PokemonCard(
         "Pikachu",
@@ -57,6 +43,33 @@ int main(){
     player1.displayAction();
     cout << endl;
     
+
+    Player player2("Germain");
+
+    player2.addCardToBench(new EnergyCard("Grass"));
+    player2.addCardToBench(new TrainerCard("Brock", "Heal all your action pokemon"));
+    PokemonCard pokemonBulbizarre = PokemonCard(
+        "Bulbasaur",
+        "Grass",
+        "Bulbasaur",
+        1,
+        100,
+        2,
+        {make_tuple(2, "Leech Seed", 15), make_tuple(3, "Vine Whipe", 25)}
+    );
+
+    player2.addCardToBench(&pokemonBulbizarre);
+    player2.activatePokemonCard(&pokemonBulbizarre);
+    player2.attachEnergyCard(&pokemonBulbizarre, player2.getBenchCards()[0]);
+    
+    cout << endl;
+    player2.displayBench();
+    cout << endl;
+    player2.displayAction();
+    cout << endl;
+
+
+
 
 
     

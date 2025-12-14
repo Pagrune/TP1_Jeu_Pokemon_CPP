@@ -23,6 +23,9 @@ class Player{
         // getter
         string getPlayerName() const;
 
+        // get bench cards
+        vector<Card*> getBenchCards() const;
+
 
         // addCardtoBench
         void addCardToBench(Card* card);

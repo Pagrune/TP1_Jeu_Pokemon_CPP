@@ -22,6 +22,10 @@ void Player::addCardToBench(Card* card){
     _benchCard.push_back(card);
 }
 
+vector<Card*> Player::getBenchCards() const{
+    return _benchCard;
+}
+
 void Player::attachEnergyCard(PokemonCard* pokemonCard, Card* energyCard)
 {
     if (!pokemonCard || !energyCard) {
