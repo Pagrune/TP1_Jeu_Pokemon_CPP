@@ -4,6 +4,8 @@
 #include "TrainerCard.h"
 #include "Player.h"
 
+#include <iostream>
+
 #include <string>
 #include <vector>
 
@@ -67,6 +69,11 @@ int main(){
     cout << endl;
 
     player1.attack(&pokemonPikachu, 0, player2, &pokemonBulbizarre);
+    cout << endl;
+    player2.displayAction();
+    cout << endl;
+
+    player2.useTrainer(player2.getBenchCards()[0]);
     cout << endl;
     player2.displayAction();
     cout << endl;

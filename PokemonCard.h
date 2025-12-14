@@ -14,6 +14,7 @@ class PokemonCard : public Card{
         string familyName;
         int evolutionLevel;
         int hp;
+        int maxHP;
         vector<EnergyCard*> attachedEnergies;
 
         // vector de tuple (coût en énergie, coût en énergie actuel, description de l'attaque, dégâts)
@@ -30,7 +31,11 @@ class PokemonCard : public Card{
         int getHP() const;
         vector<tuple<int, string, int>> getAttacks() const;
         int getEnergyCount() const;
+        int getMaxHP() const;
 
+
+        // setter
+        void setHP(int newHP);
 
         bool canUseAttack(int attackIndex) const;
 

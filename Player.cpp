@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "PokemonCard.h"
 #include "EnergyCard.h"
+#include "TrainerCard.h"
 #include <iostream>
 
 #include<string>
@@ -24,6 +25,10 @@ void Player::addCardToBench(Card* card){
 
 vector<Card*> Player::getBenchCards() const{
     return _benchCard;
+}
+
+vector<PokemonCard*> Player::getActionCards() const{
+    return _actionCard;
 }
 
 void Player::attachEnergyCard(PokemonCard* pokemonCard, Card* energyCard)
@@ -86,8 +91,32 @@ void Player::activatePokemonCard(PokemonCard* pokemonCard){
 }
 
 
-void Player::useTrainer(Card* trainerCard){
-    cout << "Utilisation de la carte d'entraîneur : " << trainerCard->getCardName() << endl;
+void Player::useTrainer(Card* trainerCard) {
+    if (!trainerCard) {
+        cout << "Erreur : carte invalide." << endl;
+        return;
+    }
+
+    // Vérifier que c'est bien une carte TrainerCard
+    TrainerCard* trainer = dynamic_cast<TrainerCard*>(trainerCard);
+    if (!trainer) {
+        cout << "Erreur : ce n'est pas une carte d'entraîneur !" << endl;
+        return;
+    }
+
+    // Afficher l'action
+    cout << getPlayerName() 
+         << " is using Trainer Card to: " 
+         << trainer->getTrainerEffect() << endl;
+
+    // Appliquer l'effet de la carte sur le joueur courant
+    trainer->actionEffect(*this);
+
+    // Retirer la carte du bench après utilisation
+    auto it = find(_benchCard.begin(), _benchCard.end(), trainerCard);
+    if (it != _benchCard.end()) {
+        _benchCard.erase(it);
+    }
 }
 
 

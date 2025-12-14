@@ -26,6 +26,8 @@ class Player{
         // get bench cards
         vector<Card*> getBenchCards() const;
 
+        vector<PokemonCard*> getActionCards() const;
+
 
         // addCardtoBench
         void addCardToBench(Card* card);

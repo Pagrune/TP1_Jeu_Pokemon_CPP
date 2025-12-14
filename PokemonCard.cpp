@@ -18,6 +18,7 @@ PokemonCard::PokemonCard(const string& _name,
       familyName(_familyName),
       evolutionLevel(_evolutionLevel),
       hp(_hp),
+      maxHP(_hp),
       attacks(_attacks) {
 }
 
@@ -38,6 +39,16 @@ int PokemonCard::getEvolutionLevel() const {
 
 int PokemonCard::getHP() const {
     return hp;
+}
+
+int PokemonCard::getMaxHP() const {
+    return maxHP;
+}
+
+void PokemonCard::setHP(int newHP) {
+    hp = newHP;
+    if (hp > maxHP) hp = maxHP;
+    if (hp < 0) hp = 0;
 }
 
 vector<tuple<int, string, int>> PokemonCard::getAttacks() const {
